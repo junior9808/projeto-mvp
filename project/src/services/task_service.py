@@ -1,27 +1,27 @@
-from models.task import Task
+from models.task import Order
 
 class TaskService:
     def __init__(self):
-        self.tasks = []
+        self.orders = []
 
-    def create_task(self, title: str):
-        task = Task(len(self.tasks) + 1, title)
-        self.tasks.append(task)
-        return task
+    def create_order(self, customer: str, product: str):
+        order = Order(len(self.orders) + 1, customer, product)
+        self.orders.append(order)
+        return order
 
-    def list_tasks(self):
-        return self.tasks
+    def list_orders(self):
+        return self.orders
 
-    def complete_task(self, task_id: int):
-        for task in self.tasks:
-            if task.id == task_id:
-                task.completed = True
-                return task
+    def complete_order(self, order_id: int):
+        for order in self.orders:
+            if order.id == order_id:
+                order.status = "entregue"
+                return order
         return None
 
-    def delete_task(self, task_id: int):
-        for task in self.tasks:
-            if task.id == task_id:
-                self.tasks.remove(task)
+    def delete_order(self, order_id: int):
+        for order in self.orders:
+            if order.id == order_id:
+                self.orders.remove(order)
                 return True
         return False

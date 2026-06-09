@@ -1,9 +1,10 @@
-def filter_completed(tasks):
-    return list(filter(lambda t: t.completed, tasks))
-
-def format_task(task):
+def format_order(order):
     return {
-        "id": task.id,
-        "title": task.title,
-        "completed": task.completed
+        "id": order.id,
+        "cliente": order.customer,
+        "produto": order.product,
+        "status": order.status
     }
+
+def filter_completed(orders):
+    return [o for o in orders if o.status == "entregue"]

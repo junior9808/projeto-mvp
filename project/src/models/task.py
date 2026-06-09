@@ -1,5 +1,6 @@
-class Task:
-    def __init__(self, id: int, title: str, completed: bool = False):
+class Order:
+    def __init__(self, id, customer, product):
         self.id = id
-        self.title = title
-        self.completed = completed
+        self.customer = customer
+        self.product = product
+        self.status = "pendente"
