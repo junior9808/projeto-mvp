@@ -230,8 +230,6 @@ def dashboard():
             }}
         </style>
 
-
-
     </head>
 
     <body>
@@ -259,13 +257,13 @@ def dashboard():
                     </a>
                 </div>
 
-               <div class="card">
-    <h2>📋 Pedidos</h2>
-    <p>Gerenciar pedidos cadastrados</p>
-    <a class="btn" href="/pedidos">
-        Gerenciar
-    </a>
-              </div>
+                <div class="card">
+                    <h2>📋 Pedidos</h2>
+                    <p>Visualizar pedidos cadastrados</p>
+                    <a class="btn" href="/orders">
+                        Ver Pedidos
+                    </a>
+                </div>
 
                 <div class="card">
                     <h2>🚪 Sair</h2>
@@ -289,189 +287,8 @@ def dashboard():
 
 
 # ==========================
-# TELA DE PEDIDOS
+# PEDIDOS
 # ==========================
-
-@app.get("/pedidos", response_class=HTMLResponse)
-def tela_pedidos():
-
-    pedidos = service.list_orders()
-
-    linhas = ""
-
-    for pedido in pedidos:
-
-       linhas += f"""
-<tr>
-    <td>{pedido.id}</td>
-    <td>{pedido.customer}</td>
-    <td>{pedido.product}</td>
-    <td>{pedido.status}</td>
-
-    <td>
-
-        <form action="/pedidos/concluir/{pedido.id}" method="post" style="display:inline;">
-            <button type="submit">
-                ✅ Concluir
-            </button>
-        </form>
-
-        <form action="/pedidos/excluir/{pedido.id}" method="post" style="display:inline;">
-            <button type="submit">
-                ❌ Excluir
-            </button>
-        </form>
-
-    </td>
-
-</tr>
-"""
-
-    return f"""
-    <!DOCTYPE html>
-    <html lang="pt-br">
-
-    <head>
-
-        <meta charset="UTF-8">
-
-        <title>Pedidos - Frigobé</title>
-
-        <style>
-
-            body{{
-                background:#0f172a;
-                color:white;
-                font-family:Arial;
-                padding:30px;
-            }}
-
-            .box{{
-                background:#1e293b;
-                padding:30px;
-                border-radius:15px;
-            }}
-
-            h1{{
-                margin-bottom:20px;
-            }}
-
-            table{{
-                width:100%;
-                border-collapse:collapse;
-                margin-top:20px;
-            }}
-
-            th,td{{
-                border:1px solid #334155;
-                padding:12px;
-                text-align:center;
-            }}
-
-            th{{
-                background:#111827;
-            }}
-
-            a{{
-                color:white;
-                text-decoration:none;
-            }}
-
-        </style>
-
-    </head>
-
-    <body>
-
-        <div class="box">
-
-            <h1>📦 Pedidos Cadastrados</h1>
-
-            <form action="/pedidos/criar" method="post">
-
-    <input
-        type="text"
-        name="customer"
-        placeholder="Nome do Cliente"
-        required
-    >
-
-    <input
-        type="text"
-        name="product"
-        placeholder="Produto"
-        required
-    >
-
-    <button type="submit">
-        Cadastrar Pedido
-    </button>
-
-</form>
-
-<br>
-
-          <table>
-
-    <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Produto</th>
-        <th>Status</th>
-        <th>Ações</th>
-    </tr>
-
-    {linhas}
-
-</table>
-
-            <br>
-
-            <a href="/dashboard">
-                ← Voltar ao Dashboard
-            </a>
-
-        </div>
-
-    </body>
-
-    </html>
-    """
-@app.post("/pedidos/criar")
-def criar_pedido(
-    customer: str = Form(...),
-    product: str = Form(...)
-):
-
-    service.create_order(customer, product)
-
-    return RedirectResponse(
-        url="/pedidos",
-        status_code=302
-    )
-
-@app.post("/pedidos/concluir/{order_id}")
-def concluir_pedido(order_id: int):
-
-    service.complete_order(order_id)
-
-    return RedirectResponse(
-        url="/pedidos",
-        status_code=302
-    )
-
-
-@app.post("/pedidos/excluir/{order_id}")
-def excluir_pedido(order_id: int):
-
-    service.delete_order(order_id)
-
-    return RedirectResponse(
-        url="/pedidos",
-        status_code=302
-    )
-
-
 
 @app.post("/orders")
 def create_order(customer: str, product: str):
