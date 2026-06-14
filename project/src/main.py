@@ -279,6 +279,7 @@ def dashboard():
 
             .header h1{{
                 font-size:42px;
+                margin-top:10px;
                 margin-bottom:10px;
             }}
 
@@ -304,16 +305,16 @@ def dashboard():
                 border-radius:20px;
                 text-align:center;
                 border:1px solid #b30000;
-                box-shadow:0 0 20px rgba(255,0,0,0.2);
+                box-shadow:0 0 20px rgba(255,0,0,0.25);
             }}
 
             .card h2{{
                 margin-bottom:15px;
-                color:#ffffff;
+                color:white;
             }}
 
             .card h1{{
-                font-size:48px;
+                font-size:50px;
                 color:#ff4d4d;
                 margin-bottom:10px;
             }}
@@ -325,7 +326,7 @@ def dashboard():
             .btn{{
                 display:inline-block;
                 margin-top:15px;
-                padding:12px 20px;
+                padding:12px 22px;
                 border-radius:10px;
                 text-decoration:none;
                 color:white;
@@ -345,7 +346,7 @@ def dashboard():
             footer{{
                 text-align:center;
                 padding:40px;
-                color:#cbd5e1;
+                color:#d1d5db;
             }}
 
         </style>
@@ -374,7 +375,7 @@ def dashboard():
 
                 <div class="card">
 
-                    <h2>🥩 Pedidos Ativos</h2>
+                    <h2>🥩 Pedidos</h2>
 
                     <h1>{total}</h1>
 
@@ -400,10 +401,10 @@ def dashboard():
 
                 <div class="card">
 
-                    <h2>🚚 Gerenciar Pedidos</h2>
+                    <h2>📦 Gerenciar Pedidos</h2>
 
                     <p>
-                        Controle completo dos pedidos
+                        Cadastro, edição e controle
                     </p>
 
                     <a class="btn" href="/pedidos">
@@ -431,14 +432,13 @@ def dashboard():
         </div>
 
         <footer>
-            © 2026 FRIGOBÉ PREMIUM | Distribuição de Carnes e Produtos Bovinos
+            © 2026 FRIGOBÉ PREMIUM | Sistema de Gestão Comercial
         </footer>
 
     </body>
 
     </html>
     """
-
 
 
 # ==========================
