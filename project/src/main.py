@@ -241,8 +241,10 @@ def dashboard():
     <html lang="pt-br">
 
     <head>
+
         <meta charset="UTF-8">
-        <title>Dashboard Frigobé</title>
+
+        <title>Dashboard Frigobé Premium</title>
 
         <style>
 
@@ -250,85 +252,120 @@ def dashboard():
                 margin:0;
                 padding:0;
                 box-sizing:border-box;
-                font-family:Arial, sans-serif;
+                font-family:Arial,sans-serif;
             }}
 
             body{{
-                background:#0f172a;
+                background:
+                linear-gradient(
+                    135deg,
+                    #000000,
+                    #180000,
+                    #3d0000,
+                    #000000
+                );
+
                 color:white;
+                min-height:100vh;
             }}
 
             .header{{
-                background:#111827;
-                padding:25px;
+                background:#080808;
+                padding:30px;
                 text-align:center;
+                border-bottom:2px solid #b30000;
+                box-shadow:0 0 20px rgba(255,0,0,0.3);
             }}
 
             .header h1{{
-                font-size:32px;
+                font-size:42px;
+                margin-bottom:10px;
             }}
 
             .header p{{
-                color:#94a3b8;
-                margin-top:8px;
+                color:#d1d5db;
             }}
 
             .container{{
                 max-width:1200px;
                 margin:auto;
-                padding:40px;
+                padding:50px 20px;
             }}
 
             .cards{{
                 display:grid;
                 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-                gap:20px;
+                gap:25px;
             }}
 
             .card{{
-                background:#1e293b;
+                background:#0b0b0b;
                 padding:30px;
-                border-radius:15px;
+                border-radius:20px;
                 text-align:center;
+                border:1px solid #b30000;
+                box-shadow:0 0 20px rgba(255,0,0,0.2);
             }}
 
             .card h2{{
                 margin-bottom:15px;
+                color:#ffffff;
+            }}
+
+            .card h1{{
+                font-size:48px;
+                color:#ff4d4d;
+                margin-bottom:10px;
+            }}
+
+            .card p{{
+                color:#d1d5db;
             }}
 
             .btn{{
                 display:inline-block;
                 margin-top:15px;
                 padding:12px 20px;
-                background:#22c55e;
-                color:white;
+                border-radius:10px;
                 text-decoration:none;
-                border-radius:8px;
+                color:white;
+                font-weight:bold;
+
+                background:
+                linear-gradient(
+                    #ff1a1a,
+                    #b30000
+                );
             }}
 
             .btn:hover{{
-                background:#16a34a;
+                transform:scale(1.05);
             }}
 
             footer{{
                 text-align:center;
-                padding:30px;
-                color:#94a3b8;
+                padding:40px;
+                color:#cbd5e1;
             }}
+
         </style>
-
-
 
     </head>
 
     <body>
 
         <div class="header">
-        <p>
-Carnes selecionadas • Qualidade garantida • Entrega rápida
-</p>
-            <h1> Frigobé</h1>
-            <p>Comerciaria e açougue</p>
+
+            <p>
+                Carnes selecionadas • Qualidade garantida • Entrega rápida
+            </p>
+
+            <h1>🐂 FRIGOBÉ PREMIUM</h1>
+
+            <p>
+                Distribuição de Carnes e Produtos Bovinos
+            </p>
+
         </div>
 
         <div class="container">
@@ -336,33 +373,57 @@ Carnes selecionadas • Qualidade garantida • Entrega rápida
             <div class="cards">
 
                 <div class="card">
-                    <h2> Pedidos</h2>
+
+                    <h2>🥩 Pedidos Ativos</h2>
+
                     <h1>{total}</h1>
-                    <p>Total de pedidos cadastrados</p>
+
+                    <p>
+                        Total de pedidos cadastrados
+                    </p>
+
                 </div>
 
                 <div class="card">
-                    <h2> API</h2>
-                    <p>Documentação completa da API</p>
+
+                    <h2>📄 API</h2>
+
+                    <p>
+                        Documentação completa da API
+                    </p>
+
                     <a class="btn" href="/docs">
                         Abrir
                     </a>
+
                 </div>
 
-               <div class="card">
-    <h2> Pedidos</h2>
-    <p>Gerenciar pedidos cadastrados</p>
-    <a class="btn" href="/pedidos">
-        Gerenciar
-    </a>
-              </div>
+                <div class="card">
+
+                    <h2>🚚 Gerenciar Pedidos</h2>
+
+                    <p>
+                        Controle completo dos pedidos
+                    </p>
+
+                    <a class="btn" href="/pedidos">
+                        Gerenciar
+                    </a>
+
+                </div>
 
                 <div class="card">
-                    <h2> Sair</h2>
-                    <p>Retornar ao login</p>
+
+                    <h2>🚪 Sair</h2>
+
+                    <p>
+                        Retornar ao login
+                    </p>
+
                     <a class="btn" href="/login">
                         Sair
                     </a>
+
                 </div>
 
             </div>
@@ -370,12 +431,14 @@ Carnes selecionadas • Qualidade garantida • Entrega rápida
         </div>
 
         <footer>
-           © 2026 Frigobé Premium - Sistema de Gestão Comercial
+            © 2026 FRIGOBÉ PREMIUM | Distribuição de Carnes e Produtos Bovinos
         </footer>
 
     </body>
+
     </html>
     """
+
 
 
 # ==========================
