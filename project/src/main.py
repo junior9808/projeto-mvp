@@ -25,63 +25,139 @@ def login():
     return """
     <!DOCTYPE html>
     <html lang="pt-br">
+
     <head>
         <meta charset="UTF-8">
-        <title>Login Frigobé</title>
+        <title>Frigobé Premium</title>
 
         <style>
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Arial, sans-serif;
+            }
+
             body{
-                background:#111827;
+                height:100vh;
                 display:flex;
                 justify-content:center;
                 align-items:center;
-                height:100vh;
-                font-family:Arial;
+
+                background:
+                linear-gradient(
+                    135deg,
+                    #000000,
+                    #180000,
+                    #3d0000,
+                    #000000
+                );
+
+                overflow:hidden;
             }
 
             .box{
-                background:#1f2937;
-                padding:40px;
-                border-radius:15px;
-                width:350px;
-                box-shadow:0 0 20px rgba(0,0,0,0.5);
+
+                width:450px;
+
+                background:#080808;
+
+                border:2px solid #a00000;
+
+                border-radius:25px;
+
+                padding:50px;
+
+                box-shadow:
+                    0 0 25px rgba(255,0,0,0.4),
+                    0 0 50px rgba(255,0,0,0.2);
+
+            }
+
+            .logo{
+                text-align:center;
+                font-size:65px;
+                margin-bottom:10px;
             }
 
             h1{
-                color:white;
                 text-align:center;
-                margin-bottom:30px;
+                color:white;
+                font-size:48px;
+                margin-bottom:10px;
+                letter-spacing:2px;
+            }
+
+            .subtitle{
+                text-align:center;
+                color:#bdbdbd;
+                margin-bottom:35px;
+                font-size:16px;
             }
 
             input{
+
                 width:100%;
-                padding:12px;
-                margin-bottom:15px;
-                border:none;
-                border-radius:8px;
-                box-sizing:border-box;
+                padding:16px;
+
+                margin-bottom:18px;
+
+                border:1px solid #b30000;
+
+                border-radius:12px;
+
+                background:#111111;
+
+                color:white;
+
+                font-size:15px;
+            }
+
+            input:focus{
+                outline:none;
+                border-color:#ff0000;
             }
 
             button{
+
                 width:100%;
-                padding:12px;
+
+                padding:16px;
+
                 border:none;
-                border-radius:8px;
-                background:#22c55e;
+
+                border-radius:12px;
+
+                background:
+                linear-gradient(
+                    #ff1a1a,
+                    #b30000
+                );
+
                 color:white;
-                font-size:16px;
+
+                font-size:18px;
+
+                font-weight:bold;
+
                 cursor:pointer;
+
+                transition:0.3s;
             }
 
             button:hover{
-                background:#16a34a;
+                transform:scale(1.02);
+                box-shadow:0 0 20px rgba(255,0,0,0.5);
             }
 
-            p{
-                color:#cbd5e1;
+            .footer{
                 text-align:center;
-                margin-top:15px;
+                margin-top:25px;
+                color:#888;
+                font-size:13px;
             }
+
         </style>
 
     </head>
@@ -90,7 +166,15 @@ def login():
 
         <div class="box">
 
-            <h1>🥩 Frigobé</h1>
+            <div class="logo">
+                🐂
+            </div>
+
+            <h1>FRIGOBÉ</h1>
+
+            <p class="subtitle">
+                Sistema de Gestão Comercial
+            </p>
 
             <form method="post" action="/login">
 
@@ -114,11 +198,14 @@ def login():
 
             </form>
 
-            <p>Sistema de Gerenciamento de Pedidos</p>
+            <div class="footer">
+                Distribuição de Carnes e Produtos Bovinos
+            </div>
 
         </div>
 
     </body>
+
     </html>
     """
 
@@ -237,8 +324,11 @@ def dashboard():
     <body>
 
         <div class="header">
-            <h1>🥩 Frigobé</h1>
-            <p>Sistema de Gerenciamento de Pedidos</p>
+        <p>
+Carnes selecionadas • Qualidade garantida • Entrega rápida
+</p>
+            <h1> Frigobé</h1>
+            <p>Comerciaria e açougue</p>
         </div>
 
         <div class="container">
@@ -246,13 +336,13 @@ def dashboard():
             <div class="cards">
 
                 <div class="card">
-                    <h2>📦 Pedidos</h2>
+                    <h2> Pedidos</h2>
                     <h1>{total}</h1>
                     <p>Total de pedidos cadastrados</p>
                 </div>
 
                 <div class="card">
-                    <h2>📄 API</h2>
+                    <h2> API</h2>
                     <p>Documentação completa da API</p>
                     <a class="btn" href="/docs">
                         Abrir
@@ -260,7 +350,7 @@ def dashboard():
                 </div>
 
                <div class="card">
-    <h2>📋 Pedidos</h2>
+    <h2> Pedidos</h2>
     <p>Gerenciar pedidos cadastrados</p>
     <a class="btn" href="/pedidos">
         Gerenciar
@@ -268,7 +358,7 @@ def dashboard():
               </div>
 
                 <div class="card">
-                    <h2>🚪 Sair</h2>
+                    <h2> Sair</h2>
                     <p>Retornar ao login</p>
                     <a class="btn" href="/login">
                         Sair
@@ -280,7 +370,7 @@ def dashboard():
         </div>
 
         <footer>
-            Desenvolvido por Dhonantan dos Santos e Arthur Cirqueira
+           © 2026 Frigobé Premium - Sistema de Gestão Comercial
         </footer>
 
     </body>
@@ -340,14 +430,14 @@ def tela_pedidos():
         <style>
 
             body{{
-                background:#0f172a;
+               background:#2b0f0f;
                 color:white;
                 font-family:Arial;
                 padding:30px;
             }}
 
             .box{{
-                background:#1e293b;
+                background:#4a1d1d;
                 padding:30px;
                 border-radius:15px;
             }}
@@ -385,7 +475,7 @@ def tela_pedidos():
 
         <div class="box">
 
-            <h1>📦 Pedidos Cadastrados</h1>
+            <h1> Pedidos Cadastrados</h1>
 
             <form action="/pedidos/criar" method="post">
 
